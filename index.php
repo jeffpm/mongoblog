@@ -17,22 +17,13 @@
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
 <?php
-//$cursor = $collection->find()->skip($collection->count()-9);
 $cursor = $collection->find()->limit(9);
 $cursor->sort(array('_id' => -1));
 $stack=array();
 while( $cursor->hasNext() ) {
-    //var_dump( $cursor->getNext() );     /* These two lines just dump each result */
-	//echo "<br />";
-	array_push($stack, $cursor->getNext()); /* This line adds each result to an array */
-}
-
-$temp=array();
-while(current($stack)!=NULL){
-	$post=current($stack);
+	$post=$cursor->getNext();
 	echo "<p class=\"post\">";
 	echo "<a href=\"post.php?id=".$post["_id"]."\">".$post["title"]." by ".$post["author"].", ". $post["date"]."</a> <br />";
-	//echo $post["_id"]." ".$post["title"]." - by ".$post["author"].". ".$post["date"]."<br />";
 	$content = $post["content"];
 	if(strlen($content)>100){
 					$temp=strpos($content, " ", 95);
@@ -48,7 +39,6 @@ while(current($stack)!=NULL){
 					}
 				}
 	echo "$description <br /> </p>";
-	next($stack);
 }
 
 ?>
