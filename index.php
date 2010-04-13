@@ -13,12 +13,29 @@
 
 <body>
 <div id="container">
-<div id="main">
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
 <?php
-$cursor = $collection->find()->limit(9);
-$cursor->sort(array('_id' => -1));
+if(is_numeric($_GET['id'])){
+					$skipby=$_GET['id'];					
+					}else if($_GET['id']<0){
+						$skipby=1;
+					}else{
+						$skipby=1;
+					}
+					
+$skip=9*($skipby-1);
+if($skip>$collection->count()){
+	$skipby=1;
+	$skip=0;
+}
+//$cursor = $collection->find()->skip($skip);
+//$cursor->sort(array('_id' => -1));
+$cursor = $collection->find()->sort(array('_id' => -1));
+if($skipby-1>0 AND $skipby!=NULL){
+	$cursor->skip($skip);
+}
+$cursor->limit(9);
 $stack=array();
 while( $cursor->hasNext() ) {
 	$post=$cursor->getNext();
@@ -42,7 +59,9 @@ while( $cursor->hasNext() ) {
 }
 
 ?>
-</div>
+<div id="prev"><?php if(9*($skipby)<=$collection->count()){ echo "<a href=\"?id=".($skipby+1)."\">Previous Entries</a>";} ?></div>
+<div id="next"><?php if(($skipby-1)>0){ echo "<a href=\"?id=".($skipby-1)."\">Newer Entries</a>";} ?></div> 
+<br />
 </div>
 <?php include "footer.php"; ?>
 

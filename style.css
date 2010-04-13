@@ -31,6 +31,7 @@ body  {
 #mainContent { 
 	margin: 0 250px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
 	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	table-layout:auto;
 } 
 #footer { 
 	padding: 0 10px 0 20px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
@@ -42,4 +43,13 @@ body  {
 }
 p.post{ 
 	/* Tag used on index.php for different posts */
+}
+#next{
+	background:inherit;
+	float:right;
+	width:50%;
+}
+#prev{
+	float:left;
+	width:50%;
 }
