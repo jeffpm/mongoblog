@@ -1,2 +1,2 @@
 <div id="footer">
-    <p>footerHere</p></div>
+    <p align="right">created and maintained by team one</p></div>

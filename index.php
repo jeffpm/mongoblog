@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>mongoBlog</title>
+<title>mongoblog</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -15,6 +15,7 @@
 <div id="container">
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
+<H1>mongoblog</H1>
 <?php
 if(is_numeric($_GET['id'])){
 					$skipby=$_GET['id'];					
