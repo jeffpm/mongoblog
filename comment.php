@@ -1,6 +1,5 @@
 <?php
 	$m = new Mongo();
-	$collection = $m->blogsite->posts;
 	$postid = $_GET['id'];
 	
 ?>
@@ -17,26 +16,28 @@
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
 <?php
-	$collection = $m->blogsite->comments;
-	$query = array( "name" => "test"); /* The value you are searching for */
+	$collection = $m->blogsite->blogs;
+
+	$query = array( "pageid" => 1 ); /* The value you are searching for */
 	$cursor = $collection->find( $query );
 	$stack=array();
 	while( $cursor->hasNext() ) {
-		//var_dump( $cursor->getNext() );     /* These two lines just dump each result */
-		//echo "<br />";
 		array_push($stack, $cursor->getNext()); /* This line adds each result to an array */
 	}
+	$thisPage=$stack[0];
+	$comments=$thisPage["comments"];
+	$temp=array();
+
+while(current($comments)!=NULL){
+	$temp=current($comments);
+	echo $temp["user"]." : ".$temp["comment"]."<br />";
+	next($comments);
+}
+
 	echo "<table>";
 	echo "<tr><th>Name</th><th>Comment</th><th>Date</th></tr>";
-	for ($i=0; $i<count($stack); $i++){
-		$thisPage=$stack[$i];
-		$pageid=$thisPage["pageid"];
-		$name=$thisPage["name"];
-		$comment=$thisPage["comment"];
-		$date=$thisPage["date"];
-	echo "<tr><td>$name</td><td>$comment</td><td>$date</td></tr>";
-	}
 	echo "</table>";
+	
 
 if (!isset($_POST['submit'])) {
 ?>
@@ -60,12 +61,11 @@ if (!isset($_POST['submit'])) {
 }
 else
 {
-		$collection = $m->blogsite->comments;
+		$collection = $m->blogsite->blogs;
 		$name = $_POST['name'];
 		$comment =$_POST['comment'];
 		$date=date("Y-m-d");
-		$doc=array("postid" => $postid, "name" => $name, "comment" => $comment, "date" => $date);
-		$collection->insert( $doc );
+		$collection->update(array("pageid" => 1), array('$push' => array('comments' => array('user' => $name, 'comment' => $comment, 'date'=>$date))));
 }
 ?>
 
