@@ -15,7 +15,6 @@
 <div id="container">
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
-<H1>mongoblog</H1>
 <?php
 if(is_numeric($_GET['id'])){
 					$skipby=$_GET['id'];					
@@ -56,7 +55,13 @@ while( $cursor->hasNext() ) {
 						$description=substr($content, 0, $temp)."..";
 					}
 				}
-	echo "$description <br /> </p>";
+	echo "$description <br />";
+	$comments=$post["comments"];
+	if($comments!=NULL){
+		$comments=count($comments);
+		echo "$comments comments <br /></p>";
+	}else
+		echo "0 comments <br /></p>";
 }
 
 ?>
