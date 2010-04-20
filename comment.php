@@ -1,6 +1,7 @@
 <?php
 	$m = new Mongo();
 	$postid = $_GET['id'];
+	$postid=new Mongoid($postid);
 	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -16,9 +17,9 @@
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
 <?php
-	$collection = $m->blogsite->blogs;
+	$collection = $m->blogsite->posts;
 
-	$query = array( "pageid" => 1 ); /* The value you are searching for */
+	$query = array( "_id" => $postid ); /* The value you are searching for */
 	$cursor = $collection->find( $query );
 	$stack=array();
 	while( $cursor->hasNext() ) {
@@ -27,11 +28,12 @@
 	$thisPage=$stack[0];
 	$comments=$thisPage["comments"];
 	$temp=array();
-
+if($comments!=NULL){
 while(current($comments)!=NULL){
 	$temp=current($comments);
 	echo $temp["user"]." : ".$temp["comment"]."<br />";
 	next($comments);
+}
 }
 
 	echo "<table>";
@@ -61,11 +63,12 @@ if (!isset($_POST['submit'])) {
 }
 else
 {
-		$collection = $m->blogsite->blogs;
+		$collection = $m->blogsite->posts;
 		$name = $_POST['name'];
 		$comment =$_POST['comment'];
 		$date=date("Y-m-d");
-		$collection->update(array("pageid" => 1), array('$push' => array('comments' => array('user' => $name, 'comment' => $comment, 'date'=>$date))));
+		
+		$collection->update(array("_id" => $postid), array('$push' => array('comments' => array('user' => $name, 'comment' => $comment, 'date'=>$date))));
 }
 ?>
 
