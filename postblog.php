@@ -63,7 +63,7 @@ if (!isset($_POST['submit'])) {
 }
 else
 {
-		$collection = $m->blogsite->blogs;
+		$collection = $m->blogsite->posts;
 		$title = $_POST['title'];
 		$blog =$_POST['blog'];
 		$date=date("Y-m-d");
