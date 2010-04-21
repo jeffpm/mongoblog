@@ -18,26 +18,7 @@
 <div id="mainContent">
 
 <?php
-	$collection = $m->blogsite->posts;
-	$query = array( "title" => "date"); /* The value you are searching for */
-	$cursor = $collection->find( $query );
-	$stack=array();
-	while( $cursor->hasNext() ) {
-		//var_dump( $cursor->getNext() );     /* These two lines just dump each result */
-		//echo "<br />";
-		array_push($stack, $cursor->getNext()); /* This line adds each result to an array */
-	}
-	echo "<table>";
-	echo "<tr><th>Title</th><th>Blog</th><th>Date</th></tr>";
-	for ($i=0; $i<count($stack); $i++){
-		$thisPage=$stack[$i];
-		$pageid=$thisPage["pageid"];
-		$title=$thisPage["title"];
-		$blog=$thisPage["blog"];
-		$date=$thisPage["date"];
-	echo "<tr><td>$title</td><td>$blog</td><td>$date</td></tr>";
-	}
-	echo "</table>";
+	
 
 if (!isset($_POST['submit'])) {
 ?>
@@ -69,6 +50,8 @@ else
 		$date=date("Y-m-d");
 		$doc=array("postid" => $postid, "title" => $title, "blog" => $blog, "date" => $date);
 		$collection->insert( $doc );
+		
+		echo "<p>Thank you for adding a post!</p>";
 }
 ?>
 
