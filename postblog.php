@@ -2,7 +2,7 @@
 	$m = new Mongo();
 	$collection = $m->blogsite->posts;
 	$postid = $_GET['id'];
-	
+	$author=$_SESSION['user'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -67,7 +67,7 @@ else
 		$title = $_POST['title'];
 		$blog =$_POST['blog'];
 		$date=date("Y-m-d");
-		$doc=array("postid" => $postid, "title" => $title, "blog" => $blog, "date" => $date);
+		$doc=array("author" => $author, "title" => $title, "blog" => $blog, "date" => $date);
 		$collection->insert( $doc );
 }
 ?>
