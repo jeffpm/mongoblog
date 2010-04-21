@@ -18,7 +18,7 @@
 <div id="mainContent">
 
 <?php
-	$collection = $m->blogsite->blogs;
+	$collection = $m->blogsite->posts;
 	$query = array( "title" => "date"); /* The value you are searching for */
 	$cursor = $collection->find( $query );
 	$stack=array();
