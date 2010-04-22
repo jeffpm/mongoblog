@@ -2,7 +2,7 @@
 html, body  {
 	font: 100% Verdana, Arial, Helvetica, sans-serif;
 	height: 100%;
-	background: #666666;
+	background-image: url('mango.jpg');
 	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
 	padding: 0;
 	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
@@ -18,7 +18,7 @@ html, body  {
 	height:auto;
 } 
 #header { 
-	background: #FF7F24; 
+	background: #CD3700; 
 	margin: 0;
 	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
 } 
@@ -30,6 +30,7 @@ html, body  {
 	float: right; /* since this element is floated, a width must be given */
 	width: 200px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
 	background: #EBEBEB; /* the background color will be displayed for the length of the content in the column, but no further */
+	border-top: 1px solid #000000;
 	padding: 15px 10px;
 	height:auto;
 	/*border-left:thin;
