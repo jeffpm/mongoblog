@@ -51,7 +51,7 @@ if (!isset($_POST['submit'])) {
 			</td></tr>
 			<tr><td>
 				<label for="name">Comment:</label>
-				<td><textarea id="comment" name="comment" rows="3" cols="50" ></textarea></td>
+				<td><textarea id="comment" name="comment" rows="3" cols="40" ></textarea></td>
 			</td></tr>
 			<tr><td>
 				<input type="submit" value="Submit Comment" name="submit" />
