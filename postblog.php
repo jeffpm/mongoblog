@@ -3,7 +3,7 @@
 	$m = new Mongo();
 	$collection = $m->blogsite->posts;
 	$postid = $_GET['id'];
-	$author=$_SESSION['user'];
+	$author=$_SESSION['username'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,7 +22,7 @@
 if(isset($_SESSION['username'])){
 	if (!isset($_POST['submit'])) {
 	?>
-	<form method="post" action="<?php postblog.php?>" enctype="multipart/form-data">
+	<form method="post" action="<?php $PHP_SELF; ?>" enctype="multipart/form-data">
 				<table>
 				<tr><td valign="center">
 					<label for="title"><b>Title:</b></label>
@@ -39,6 +39,7 @@ if(isset($_SESSION['username'])){
 				</center></td></tr>
 				</form>
 			</table>
+            <div style="clear:both;"></div>
 	</div>
 	<?php 
 	}
@@ -51,7 +52,7 @@ if(isset($_SESSION['username'])){
 			$doc=array("author" => $author, "title" => $title, "content" => $blog, "date" => $date);
 			$collection->insert( $doc );
 			
-			echo "<p>Thank you for adding a post!</p>";
+			echo "<p>Thank you for adding a post!</p><div style=\"clear:both;\"></div></div><div style=\"clear:both;\"></div>";
 	}
 }
 else{
@@ -62,6 +63,8 @@ else{
 	<p>
 	<a href="index.php">home page</a>
 	</p>
+    </div>
+    <div style="clear:both;"></div>
 <?php 
 }
 ?>	

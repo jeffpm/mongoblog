@@ -19,8 +19,6 @@
 <div id="container">
 <?php include "header.php"; include "sidebar.php"; ?>
 <div id="mainContent">
-
-
 <?php
 if (!isset($_POST['submit'])) {
 
@@ -41,6 +39,9 @@ if (!isset($_POST['submit'])) {
 }
 ?>
 <?php
+if($_SESSION['username']==$author){
+	echo "<div id=\"alterpost\"><a href=\"editpost.php?id=".$thisPage["_id"]."\">Edit</a> <a href=\"deletepost.php?id=".$thisPage["_id"]."\">Delete</a></div>";
+}
 echo " <br> Post By: $author <br> <br>";
 
 echo "Title: $title <br> <br>";
