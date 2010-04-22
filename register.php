@@ -189,8 +189,6 @@ else {
 		<?php
 	//if everything was filled in correctly, add the entry to the database
 }else{
-	$cursor = $collection->find()->sort(array('_id' => -1));
-	
 	$newUser = array("username" => "$username",
 					 "password" => "$password",
 					 "firstname" => "$firstname",
@@ -205,7 +203,7 @@ else {
 		<td>
 			<label>Thank you for creating an account.</label>
 			<br />
-			<a href="index.php?id=1">home page</a>
+			<a href="index.php">home page</a>
 		</td>
 	</tr>
 	</table>
