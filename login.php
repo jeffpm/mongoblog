@@ -6,7 +6,7 @@
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title>mongoblog - login</title>
+			<title>mangoblog - login</title>
 			<link href="style.css" rel="stylesheet" type="text/css" />
 		</head>
 		
@@ -14,7 +14,7 @@
 		<div id="container">
 			<?php include "header.php"; include "sidebar.php"; ?>
 		<div id="mainContent">
-		<H1>mongoblog - login</H1>
+		<H1>login</H1>
 		
 <?php if (!isset($_POST['submit'])) { ?>
 	<table cellpadding="5" cellspacing="10">
