@@ -17,7 +17,10 @@
 <div id="mainContent">
 <H1>mongoblog - register</H1>
 
+
 <?php
+	$collection = $m->blogsite->users;
+
 //Collect the variables from the form
 $username = $_POST["username"];
 $firstname = $_POST["firstname"];
