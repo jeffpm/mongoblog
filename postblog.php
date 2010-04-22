@@ -24,15 +24,15 @@ if (!isset($_POST['submit'])) {
 ?>
 <form method="post" action="<?php postblog.php?>" enctype="multipart/form-data">
 			<table>
-			<tr><td>
+			<tr><td valign="center">
 				<label for="title"><b>Title:</b></label>
 				<td>
-				<textarea id="title" name="title" rows="1" cols="50"></textarea></td>
+				<textarea id="title" name="title" rows="1" cols="50" style="resize: none;"></textarea></td>
 				
 			</td></tr>
-			<tr><td>
+			<tr><td valign="top">
 				<label for="name"><b>Post Blog:</b></label>
-				<td><textarea id="blog" name="blog" rows="20" cols="50" ></textarea></td>
+				<td><textarea id="blog" name="blog" rows="20" cols="50" style="resize: none;"></textarea></td>
 			</td></tr>
 			<tr><td/><td><center>
 				<input type="submit" value="Submit Blog" name="submit" />
