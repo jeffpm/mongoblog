@@ -90,7 +90,7 @@ while(current($comments)!=NULL){
 			<table>
 			<tr><td>
 				<label for="name">Name:</label>
-				<td><input type="text" id="name" name="name" /> <br /></td>
+				<td><input type="text" id="name" name="name" <?php if(isset($_SESSION['username'])){ echo "readonly=\"readonly\" value=\"".$_SESSION['username']."\""; }?>/> <br /></td>
 			</td></tr>
 			<tr><td>
 				<label for="name">Comment:</label>
@@ -112,7 +112,7 @@ else
 		$name = $_POST['name'];
 		$comment =$_POST['comment'];
 		$date=date("Y-m-d");
-		
+		if(isset($_SESSION['username'])){ $name= "<b>".$name."</b>";}
 		$collection->update(array("_id" => $postid), array('$push' => array('comments' => array('user' => $name, 'comment' => $comment, 'date'=>$date))));
 		
 	$collection = $m->blogsite->posts;
@@ -173,7 +173,7 @@ while(current($comments)!=NULL){
 			<table>
 			<tr><td>
 				<label for="name">Name:</label>
-				<td><input type="text" id="name" name="name" /> <br /></td>
+				<td><input type="text" id="name" name="name" <?php if(isset($_SESSION['username'])){ echo "readonly=\"readonly\" value=\"".$_SESSION['username']."\""; }?>/> <br /></td>
 			</td></tr>
 			<tr><td>
 				<label for="name">Comment:</label>
