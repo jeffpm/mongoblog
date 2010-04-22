@@ -189,11 +189,11 @@ else {
 		<?php
 	//if everything was filled in correctly, add the entry to the database
 }else{
-	$newUser = array("username" => "$username",
-					 "password" => "$password",
-					 "firstname" => "$firstname",
-					 "lastname" => "$lastname",
-					 "email" => "$email");
+	$newUser = array("username" => $username,
+					 "password" => $password,
+					 "firstname" => $firstname,
+					 "lastname" => $lastname,
+					 "email" => $email);
 	
 	$collection->insert($newUser);
 	
