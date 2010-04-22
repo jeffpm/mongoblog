@@ -42,6 +42,8 @@
 	$tempstring;
 	while( $cursor->hasNext() ) {
 	$post=$cursor->getNext();
+	////////
+	if($post['title']!=NULL){
 	$string=$post['date'];
 	$Mid=$post['_id'];
 	$Title=$post['title'];
@@ -83,7 +85,8 @@
 		$Ycounter++;
 		echo "$thisyear <br />";
 	}
-	
+	////
+	}
 	}
 	$months=array_reverse($months);
 	$tempMonth=array_reverse($tempMonth);
