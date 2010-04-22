@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$m = new Mongo();
 	$usercollec = $m->blogsite->users;
 ?>
@@ -52,33 +53,30 @@ else
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	
-	/*$query = array("username" => $username, "password" => $password); 
-	$cursor = $usercollec->find( $query );*/
-	
 	$userFound = false;
 	$name = "";
 
-	/*
+	/* query for user with same username and password */
+	$query = array("username" => $username, "password" => $password); 
+	$cursor = $usercollec->find( $query );
 	$stack = array();
-	while( $cursor->hasNext() ) {
+	while( $cursor->hasNext() )
 		array_push($stack, $cursor->getNext()); 
-	}
 	
 	if($stack != NULL){
 		$stack = $stack[0];
 		$name = $stack["firstname"]." ".$stack["lastname"];
 		$userFound = true;
 	}
-	*/
 	
-	$cursor = $usercollec->find();
+	/*$cursor = $usercollec->find();
 	while($cursor->hasNext() && $userFound == false){
 		$post = $cursor->getNext();
 		if($post["username"] == $username){
 			$userFound = true;
 			$name = $post["firstname"]." ".$post["lastname"];
 		}
-	}
+	}*/
 	
 	if($userFound == false){
 	?>
@@ -121,9 +119,9 @@ else
 		<p>
 		<?php echo "Thank you for logging in, $name."; ?>
 		</p>
-		<br />
+		<p>
 		<a href="index.php">home page</a>
-		<br />
+		</p>
 		</body>
 		</div>	
 			<?php include("footer.php"); ?>

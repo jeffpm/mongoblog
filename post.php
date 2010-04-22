@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$m = new Mongo();
 	$collection = $m->blogsite->posts;
 	$postid = $_GET['id'];

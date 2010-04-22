@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$m = new Mongo();
 	$collection = $m->blogsite->users;
 ?>
@@ -201,15 +202,12 @@ else {
 	$collection->insert($newUser);
 	
 	?>
-	<table cellpadding="5" cellspacing="10">
-	<tr>
-		<td>
-			<label>Thank you for creating an account.</label>
-			<br />
-			<a href="index.php">home page</a>
-		</td>
-	</tr>
-	</table>
+	<p>
+	<label>Thank you for creating an account.</label>
+	</p>
+	<p>
+	<a href="index.php">home page</a>
+	</p>
 	<?php
 	}
 }
