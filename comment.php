@@ -58,6 +58,7 @@ if (!isset($_POST['submit'])) {
 			</td></tr>
 			</form>
         </table>
+        <div style="clear:both;"></div>
 </div>
 <?php 
 }

@@ -68,6 +68,7 @@ while( $cursor->hasNext() ) {
 <div id="prev"><?php if(9*($skipby)<=$collection->count()){ echo "<a href=\"?id=".($skipby+1)."\">Previous Entries</a>";} ?></div>
 <div id="next"><?php if(($skipby-1)>0){ echo "<a href=\"?id=".($skipby-1)."\">Newer Entries</a>";} ?></div> 
 <br />
+<div style="clear:both;"></div>
 </div>
 <?php include "footer.php"; ?>
 
