@@ -3,61 +3,64 @@ html, body  {
 	font: 100% Verdana, Arial, Helvetica, sans-serif;
 	height: 100%;
 	background-image: url('mango.jpg');
-	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	margin: 0; 
 	padding: 0;
-	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	text-align: center; 
 	color: #000000;
 }
 #container {
-	width: 780px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	width: 780px;  
 	background-image:url('bg.png');
 	background-repeat:repeat;
-	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	margin: 0 auto; 
 	border: 1px solid #000000;
-	text-align: left; /* this overrides the text-align: center on the body element. */
+	text-align: left;
 	height:auto;
 } 
 #header { 
 	background: #CD3700; 
 	margin: 0;
-	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	padding: 0 10px 0 20px;  
+	border-bottom:thin;
+	border-bottom-color:#000;
+	border-bottom-style:ridge;
 } 
 #header h1 {
-	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
-	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+	margin: 0; 
+	padding: 10px 0; 
 }
 #sidebar {
-	float: right; /* since this element is floated, a width must be given */
-	width: 200px; /* the actual width of this div, in standards-compliant browsers, or standards mode in Internet Explorer will include the padding and border in addition to the width */
-	background: #EBEBEB; /* the background color will be displayed for the length of the content in the column, but no further */
+	float: right; 
+	width: 200px; 
+	background: #EBEBEB; 
 	border-top: 1px solid #000000;
 	padding: 15px 10px;
-	height:auto;
-	/*border-left:thin;
+	height:inherit;
+	border-bottom:thin;
+	border-bottom-color:#000;
+	border-bottom-style:ridge;
+	border-left:thin;
 	border-left-color:#000;
-	border-left-style:ridge;*/
+	border-left-style:ridge;
 }
 #mainContent { 
-	margin: 0 220px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
-	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	margin: 0 220px 0 0; 
+	padding: 0 20px; 
 	table-layout:auto;
-	border-right:thin;
-	border-right-color:#000;
-	border-right-style:solid;
 	border-top:thin;
 	border-top-color:#000;
 	border-top-style:solid;	
 } 
 #footer { 
-	padding: 0 10px 0 20px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	padding: 0 10px 0 20px; 
 	background:#DDDDDD; 
 	border-top:thin;
 	border-top-color:#000;
 	border-top-style:solid;	
 } 
 #footer p {
-	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
-	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+	margin: 0; 
+	padding: 10px 0; 
 }
 p.post{ 
 	/* Tag used on index.php for different posts */

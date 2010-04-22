@@ -1,5 +1,5 @@
 <div id="sidebar">
-<h3>Posts</h3>
+<h3 align="center"><u>Posts</u></h3>
 <?php
 	function returnMonth($in){
 		if($in==1)
@@ -94,12 +94,13 @@
 	for ($i=0; $i<count($tempMonth); $i++){
 		$currentMonth=array_pop($months);
 		$thisM=returnMonth($currentMonth);
-		echo "&nbsp;<a href=\"#\" onclick=\"collapse_menu(menu".($i+1).", ".$i.")\"><img src=\"darrow.png\"></a>&nbsp;<a href=\"#\" onclick=\"collapse_menu(menu".($i+1).", ".$i.")\">".$thisM."</a><br /><span id=\"menu".($i+1)."\"></span>";
+		echo "&nbsp;<a href=\"#\" onclick=\"collapse_menu(menu".($i+1).", ".$i.")\"><img src=\"darrow.png\"></a>&nbsp;<a href=\"#\" onclick=\"collapse_menu(menu".($i+1).", ".$i.")\">".$thisM."</a><br /><span id=\"menu".($i+1)."\" ></span>";
 		//echo "&nbsp;&nbsp;&nbsp;<a href=\"#\" onclick=\"collapse_menu(menu".($i+1).", ".$i.")\"><img src=\"darrow.png\"></a><br />";
 	}
 
 	
 ?>
+<div style="clear:both;"></div>
 </div>
 <script language="javascript">
 var on_off=new Array();
