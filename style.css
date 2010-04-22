@@ -10,11 +10,11 @@ html, body  {
 }
 #container {
 	width: 780px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
-	background: #FFFFFF;
+	background-image:url('bg.png');
+	background-repeat:repeat;
 	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
 	border: 1px solid #000000;
 	text-align: left; /* this overrides the text-align: center on the body element. */
-	background: #EBEBEB;
 	height:auto;
 } 
 #header { 
@@ -41,7 +41,6 @@ html, body  {
 	margin: 0 220px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
 	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
 	table-layout:auto;
-	background: #FFFFFF;
 	border-right:thin;
 	border-right-color:#000;
 	border-right-style:solid;
