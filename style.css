@@ -18,7 +18,7 @@ html, body  {
 	height:auto;
 } 
 #header { 
-	background: #DDDDDD; 
+	background: #FF7F24; 
 	margin: 0;
 	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
 } 
