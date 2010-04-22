@@ -48,7 +48,7 @@ else
 		$title = $_POST['title'];
 		$blog =$_POST['blog'];
 		$date=date("Y-m-d");
-		$doc=array("author" => $author, "title" => $title, "blog" => $blog, "date" => $date);
+		$doc=array("author" => $author, "title" => $title, "content" => $blog, "date" => $date);
 		$collection->insert( $doc );
 		
 		echo "<p>Thank you for adding a post!</p>";
