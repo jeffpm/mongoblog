@@ -51,6 +51,9 @@ html, body  {
 #footer { 
 	padding: 0 10px 0 20px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
 	background:#DDDDDD; 
+	border-top:thin;
+	border-top-color:#000;
+	border-top-style:solid;	
 } 
 #footer p {
 	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
