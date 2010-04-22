@@ -39,6 +39,7 @@ $cursor->limit(9);
 $stack=array();
 while( $cursor->hasNext() ) {
 	$post=$cursor->getNext();
+	if($post['title']!=NULL){
 	echo "<p class=\"post\">";
 	echo "<a href=\"post.php?id=".$post["_id"]."\">".$post["title"]." by ".$post["author"].", ". $post["date"]."</a> <br />";
 	$content = $post["content"];
@@ -62,6 +63,7 @@ while( $cursor->hasNext() ) {
 		echo "$comments comments <br /></p>";
 	}else
 		echo "0 comments <br /></p>";
+	}
 }
 
 ?>
