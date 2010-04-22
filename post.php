@@ -61,7 +61,9 @@ echo "$content <br> <br>";
 	}
 	$thisPage=$stack[0];
 	$comments=$thisPage["comments"];
+	if ($comments!=NULL){
 	$comments=array_reverse($comments);
+	}
 	$temp=array();
 
 if($comments!=NULL){
@@ -144,7 +146,9 @@ echo "$content <br> <br>";
 	}
 	$thisPage=$stack[0];
 	$comments=$thisPage["comments"];
+	if ($comments!=NULL){
 	$comments=array_reverse($comments);
+	}
 	$temp=array();
 
 if($comments!=NULL){
