@@ -1,5 +1,6 @@
 <?php
 	$m = new Mongo();
+	$m->blogsite->dropCollection("posts");
 	$collection = $m->blogsite->posts;
 	$doc=array("title" => "My First Blog Post", 
 			   "author" => "Chris R",
