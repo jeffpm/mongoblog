@@ -41,6 +41,7 @@
 		</tr>
 		</form>
 	</table>
+    <div style="clear:both;"></div>
 	</div>
 	<?php include("footer.php"); ?>
 	</div>
@@ -106,6 +107,7 @@ else
 		</tr>
 		</form>
 		</table>
+        <div style="clear:both;"></div>
 		</div>
 		<?php include("footer.php"); ?>
 		</div>
@@ -122,10 +124,13 @@ else
 		<p>
 		<a href="index.php">home page</a>
 		</p>
-		</body>
+		
+        <div style="clear:both;"></div>
+
 		</div>	
 			<?php include("footer.php"); ?>
 		</div>
+        </body>
 		</html>
 		<?php
 		$_SESSION['username'] = $name;  //$firstname." ".$lastname

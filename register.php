@@ -214,6 +214,7 @@ else {
 ?>
 	
 <br />
+<div style="clear:both;"></div>
 </div>
 <?php include "footer.php"; ?>
 

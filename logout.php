@@ -23,6 +23,7 @@
 			<p>Logged out. Redirecting to homepage in a second...</p>
 			<p>If that does not work, click <a href="index.php">here</a>.</p>
 		</div>
+        <div style="clear:both;"></div>
 	</div>
 	<?php include("footer.php"); ?>
 </div>

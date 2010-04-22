@@ -101,7 +101,7 @@ while(current($comments)!=NULL){
 			</form>
         </table>
         <div style="clear:both;"></div>
-</div>
+
 <?php 
 }
 else
@@ -186,6 +186,10 @@ while(current($comments)!=NULL){
 <?php
 }
 ?>
+<div style="clear:both;"></div>
+</div>
+<?php include "footer.php"; ?>
+
 </div>
 
 
