@@ -1,23 +1,22 @@
 <?php
 	$m = new Mongo();
-	$collection = $m->blogsite->users;
-	
-if (!isset($_POST['submit'])) {
-	?>
+	$usercollec = $m->blogsite->users;
+?>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>mongoblog - login</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />
-	</head>
-	
-	<body>
-	<div id="container">
-		<?php include "header.php"; include "sidebar.php"; ?>
-	<div id="mainContent">
-	<H1>mongoblog - login</H1>
-	
+		<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+			<title>mongoblog - login</title>
+			<link href="style.css" rel="stylesheet" type="text/css" />
+		</head>
+		
+		<body>
+		<div id="container">
+			<?php include "header.php"; include "sidebar.php"; ?>
+		<div id="mainContent">
+		<H1>mongoblog - login</H1>
+		
+<?php if (!isset($_POST['submit'])) { ?>
 	<table cellpadding="5" cellspacing="10">
 		<form method="post" action="<?php echo $PHP_SELF;?>">
 		<tr>
@@ -52,37 +51,38 @@ else
 {	
 	$username = $_POST["username"];
 	$password = $_POST["password"];
-  
-	$cursor = $collection->find()->sort(array('_id' => -1));
+	
+	/*$query = array("username" => $username, "password" => $password); 
+	$cursor = $usercollec->find( $query );*/
+	
 	$userFound = false;
-	$correctCombo = false;
 	$name = "";
+
+	/*
+	$stack = array();
+	while( $cursor->hasNext() ) {
+		array_push($stack, $cursor->getNext()); 
+	}
+	
+	if($stack != NULL){
+		$stack = $stack[0];
+		$name = $stack["firstname"]." ".$stack["lastname"];
+		$userFound = true;
+	}
+	*/
+	
+	$cursor = $usercollec->find();
 	while($cursor->hasNext() && $userFound == false){
 		$post = $cursor->getNext();
 		if($post["username"] == $username){
 			$userFound = true;
-			if($post["password"] == $password){
-				$correctCombo = true;
-				$name = $post["firstname"]." ".$post["lastname"];
-			}
+			$name = $post["firstname"]." ".$post["lastname"];
 		}
 	}
 	
-	if(!$userFound || !$correctCombo){
+	if($userFound == false){
 	?>
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml">
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<title>mongoblog - login</title>
-			<link href="style.css" rel="stylesheet" type="text/css" />
-		</head>
 		
-		<body>
-		<div id="container">
-			<?php include "header.php"; include "sidebar.php"; ?>
-		<div id="mainContent">
-		<H1>mongoblog - login</H1>
 		
 		<table cellpadding="5" cellspacing="10">
 		<form method="post" action="<?php echo $PHP_SELF;?>">
@@ -118,18 +118,6 @@ else
 	}else
 	{
 		?>
-		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-		<HTML xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-		<HEAD>
-		<TITLE>Log In </TITLE>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		</HEAD>
-		<body>
-		<div id="container">
-			<?php include "header.php"; include "sidebar.php"; ?>
-		<div id="mainContent">
-		<H1>mongoblog - login</H1>
 		<p>
 		<?php echo "Thank you for logging in, $name."; ?>
 		</p>
